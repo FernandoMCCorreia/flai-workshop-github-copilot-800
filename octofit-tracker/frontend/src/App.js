@@ -53,8 +53,26 @@ function App() {
         <Routes>
           <Route path="/" element={
             <div className="container mt-4">
-              <h1>Welcome to OctoFit Tracker</h1>
-              <p className="lead">Track your fitness journey and compete with your team!</p>
+              <div className="row align-items-center">
+                <div className="col-md-6">
+                  <h1>Welcome to OctoFit Tracker</h1>
+                  <p className="lead">Track your fitness journey and compete with your team!</p>
+                  <p className="text-muted">Join teams, log activities, earn points, and climb the leaderboard. Get personalized workout suggestions to reach your fitness goals!</p>
+                  <div className="mt-4">
+                    <Link to="/users" className="btn btn-primary me-2">View Users</Link>
+                    <Link to="/teams" className="btn btn-success me-2">View Teams</Link>
+                    <Link to="/leaderboard" className="btn btn-info">Leaderboard</Link>
+                  </div>
+                </div>
+                <div className="col-md-6 text-center">
+                  <img 
+                    src="/octofitapp-small.png" 
+                    alt="OctoFit Tracker" 
+                    className="img-fluid welcome-image"
+                    style={{ maxWidth: '400px', height: 'auto' }}
+                  />
+                </div>
+              </div>
             </div>
           } />
           <Route path="/users" element={<Users />} />

@@ -54,8 +54,8 @@ function Teams() {
             </thead>
             <tbody>
               {teams.map((team) => (
-                <tr key={team.id}>
-                  <td>{team.id}</td>
+                <tr key={team._id}>
+                  <td>{team._id}</td>
                   <td><strong>{team.name}</strong></td>
                   <td>{team.description || 'N/A'}</td>
                   <td>{new Date(team.created_at).toLocaleDateString()}</td>
