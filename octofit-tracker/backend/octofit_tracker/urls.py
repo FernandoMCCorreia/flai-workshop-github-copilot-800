@@ -19,6 +19,7 @@ from rest_framework.routers import DefaultRouter
 from .views import UserViewSet, TeamViewSet, ActivityViewSet, LeaderboardViewSet, WorkoutViewSet
 import os
 
+# This Django app runs on GitHub Codespaces at: <codespace-name>-8000.app.github.dev
 router = DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'teams', TeamViewSet)
