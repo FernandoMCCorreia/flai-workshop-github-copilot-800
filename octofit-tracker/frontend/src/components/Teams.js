@@ -38,24 +38,31 @@ function Teams() {
 
   return (
     <div className="container mt-4">
-      <h2>Teams</h2>
-      <div className="row">
+      <h2 className="mb-4">Teams</h2>
+      <div className="table-responsive">
         {teams.length === 0 ? (
-          <p>No teams found.</p>
+          <p className="text-muted">No teams found.</p>
         ) : (
-          teams.map((team) => (
-            <div key={team.id} className="col-md-4 mb-3">
-              <div className="card">
-                <div className="card-body">
-                  <h5 className="card-title">{team.name}</h5>
-                  <p className="card-text">
-                    <strong>Description:</strong> {team.description || 'N/A'}<br />
-                    <strong>Created:</strong> {new Date(team.created_at).toLocaleDateString()}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))
+          <table className="table table-striped table-hover">
+            <thead className="table-dark">
+              <tr>
+                <th>ID</th>
+                <th>Team Name</th>
+                <th>Description</th>
+                <th>Created Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {teams.map((team) => (
+                <tr key={team.id}>
+                  <td>{team.id}</td>
+                  <td><strong>{team.name}</strong></td>
+                  <td>{team.description || 'N/A'}</td>
+                  <td>{new Date(team.created_at).toLocaleDateString()}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         )}
       </div>
     </div>

@@ -38,27 +38,37 @@ function Users() {
 
   return (
     <div className="container mt-4">
-      <h2>Users</h2>
-      <div className="row">
+      <h2 className="mb-4">Users</h2>
+      <div className="table-responsive">
         {users.length === 0 ? (
-          <p>No users found.</p>
+          <p className="text-muted">No users found.</p>
         ) : (
-          users.map((user) => (
-            <div key={user.id} className="col-md-4 mb-3">
-              <div className="card">
-                <div className="card-body">
-                  <h5 className="card-title">{user.username}</h5>
-                  <p className="card-text">
-                    <strong>Email:</strong> {user.email}<br />
-                    <strong>Age:</strong> {user.age || 'N/A'}<br />
-                    <strong>Weight:</strong> {user.weight ? `${user.weight} kg` : 'N/A'}<br />
-                    <strong>Height:</strong> {user.height ? `${user.height} cm` : 'N/A'}<br />
-                    <strong>Team:</strong> {user.team || 'N/A'}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))
+          <table className="table table-striped table-hover">
+            <thead className="table-dark">
+              <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Weight (kg)</th>
+                <th>Height (cm)</th>
+                <th>Team</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((user) => (
+                <tr key={user.id}>
+                  <td>{user.id}</td>
+                  <td><strong>{user.username}</strong></td>
+                  <td>{user.email}</td>
+                  <td>{user.age || 'N/A'}</td>
+                  <td>{user.weight || 'N/A'}</td>
+                  <td>{user.height || 'N/A'}</td>
+                  <td>{user.team || 'N/A'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         )}
       </div>
     </div>

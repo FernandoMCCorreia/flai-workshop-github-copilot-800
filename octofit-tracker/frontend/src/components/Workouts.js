@@ -38,27 +38,37 @@ function Workouts() {
 
   return (
     <div className="container mt-4">
-      <h2>Workout Suggestions</h2>
-      <div className="row">
+      <h2 className="mb-4">Workout Suggestions</h2>
+      <div className="table-responsive">
         {workouts.length === 0 ? (
-          <p>No workouts found.</p>
+          <p className="text-muted">No workouts found.</p>
         ) : (
-          workouts.map((workout) => (
-            <div key={workout.id} className="col-md-6 mb-3">
-              <div className="card">
-                <div className="card-body">
-                  <h5 className="card-title">{workout.name}</h5>
-                  <p className="card-text">
-                    <strong>Description:</strong> {workout.description}<br />
-                    <strong>User ID:</strong> {workout.user}<br />
-                    <strong>Duration:</strong> {workout.duration} minutes<br />
-                    <strong>Difficulty:</strong> {workout.difficulty_level}<br />
-                    <strong>Date:</strong> {new Date(workout.date_suggested).toLocaleDateString()}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))
+          <table className="table table-striped table-hover">
+            <thead className="table-dark">
+              <tr>
+                <th>ID</th>
+                <th>Workout Name</th>
+                <th>Description</th>
+                <th>User ID</th>
+                <th>Duration (min)</th>
+                <th>Difficulty</th>
+                <th>Date Suggested</th>
+              </tr>
+            </thead>
+            <tbody>
+              {workouts.map((workout) => (
+                <tr key={workout.id}>
+                  <td>{workout.id}</td>
+                  <td><strong>{workout.name}</strong></td>
+                  <td>{workout.description}</td>
+                  <td>{workout.user}</td>
+                  <td>{workout.duration}</td>
+                  <td><span className="badge bg-info">{workout.difficulty_level}</span></td>
+                  <td>{new Date(workout.date_suggested).toLocaleDateString()}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         )}
       </div>
     </div>

@@ -38,10 +38,10 @@ function Leaderboard() {
 
   return (
     <div className="container mt-4">
-      <h2>Leaderboard</h2>
+      <h2 className="mb-4">Leaderboard</h2>
       <div className="table-responsive">
         {leaderboard.length === 0 ? (
-          <p>No leaderboard data found.</p>
+          <p className="text-muted">No leaderboard data found.</p>
         ) : (
           <table className="table table-striped table-hover">
             <thead className="table-dark">
@@ -56,10 +56,10 @@ function Leaderboard() {
             <tbody>
               {leaderboard.map((entry, index) => (
                 <tr key={entry.id}>
-                  <td>{index + 1}</td>
+                  <td><span className="badge bg-success">{index + 1}</span></td>
                   <td>{entry.user}</td>
                   <td>{entry.team}</td>
-                  <td>{entry.total_points}</td>
+                  <td><strong>{entry.total_points}</strong></td>
                   <td>{entry.activities_completed}</td>
                 </tr>
               ))}
